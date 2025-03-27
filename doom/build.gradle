@@ -1,4 +1,4 @@
-// Переносим buildscript В НАЧАЛО файла
+// buildscript должен быть первым
 buildscript {
     ext {
         kotlin_version = '1.9.0'
@@ -15,11 +15,9 @@ buildscript {
     }
 }
 
-// Затем объявляем плагины
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+// Используем старый синтаксис для применения плагинов
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdk 34
