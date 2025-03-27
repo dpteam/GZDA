@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlin_version = '1.7.20' // Совместимая версия с AGP 7.4.2
+        kotlin_version = '1.7.20'
     }
     
     repositories {
@@ -19,7 +19,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 33
-    buildToolsVersion "33.0.0" // Используем базовую версию из SDK
+    buildToolsVersion "33.0.0"
 
     defaultConfig {
         applicationId "net.nullsum.doom"
