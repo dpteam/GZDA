@@ -19,7 +19,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 33
-    buildToolsVersion "33.0.2"  // Актуальная версия build-tools
+    buildToolsVersion "33.0.2"  // Явное указание версии build-tools
 
     defaultConfig {
         applicationId "net.nullsum.doom"
@@ -27,6 +27,11 @@ android {
         targetSdk 33
         versionCode 3
         versionName "0.2.1"
+        
+        // Удалить если не используется NDK
+        ndk {
+            abiFilters.clear()
+        }
     }
 
     compileOptions {
