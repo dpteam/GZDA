@@ -1,15 +1,13 @@
 buildscript {
     ext {
-        kotlin_version = '1.8.22' // Совместимая версия с AGP 7.4
+        kotlin_version = '1.6.21' // Совместимо с AGP 4.2
     }
-    
     repositories {
         google()
         mavenCentral()
     }
-    
     dependencies {
-        classpath "com.android.tools.build:gradle:7.4.2"
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -18,20 +16,23 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 34 // Обновлено до 34
-    buildToolsVersion "34.0.0" // Актуальная версия
+    compileSdkVersion 34 // Обновлено до 34
+    buildToolsVersion "30.0.3" // Оставляем старую версию
 
     defaultConfig {
         applicationId "net.nullsum.doom"
-        minSdk 23
-        targetSdk 34 // Обновлено до 34
+        minSdkVersion 21
+        targetSdkVersion 34 // Обновлено до 34
         versionCode 3
         versionName "0.2.1"
         
-        // Настройки NDK (если используется)
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'src/main/libs'
     }
 
     compileOptions {
@@ -46,7 +47,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':touchcontrols')
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
