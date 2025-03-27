@@ -28,9 +28,7 @@ jobs:
         ndk-version: r15c
 
     - name: Grant permissions
-      run: |
-        chmod +x gradlew
-        chmod +x build.sh
+      run: chmod +x gradlew
 
     - name: Build
       run: ./gradlew assembleDebug --stacktrace
