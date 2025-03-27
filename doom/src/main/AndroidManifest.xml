@@ -3,22 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="net.nullsum.doom">
 
+    <!-- Разрешения -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" 
-                   android:maxSdkVersion="33" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                   android:maxSdkVersion="28"
-                   tools:ignore="ScopedStorage"/>
+    <uses-permission 
+        android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+        android:maxSdkVersion="33" />
+    <uses-permission 
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" 
+        tools:ignore="ScopedStorage"/>
 
     <application
         android:icon="@drawable/launch"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        tools:targetApi="34">
 
         <activity
             android:name="net.nullsum.doom.EntryActivity"
@@ -40,6 +42,5 @@
             android:launchMode="singleTop"
             android:process=":Game"
             android:screenOrientation="sensorLandscape"/>
-
     </application>
 </manifest>
